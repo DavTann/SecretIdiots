@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buvxe3s5gjw1"
+path="res://.godot/imported/Rockslides Main.wav-e9e9768d86f53410cac737e8da5c0578.sample"
+
+[deps]
+
+source_file="res://Assets/Rockslides Main.wav"
+dest_files=["res://.godot/imported/Rockslides Main.wav-e9e9768d86f53410cac737e8da5c0578.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

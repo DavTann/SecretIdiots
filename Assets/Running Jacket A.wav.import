@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b683ey8b8f46m"
+path="res://.godot/imported/Running Jacket A.wav-17fc45f3b21b0b600dbb1f9e2180f3ec.sample"
+
+[deps]
+
+source_file="res://Assets/Running Jacket A.wav"
+dest_files=["res://.godot/imported/Running Jacket A.wav-17fc45f3b21b0b600dbb1f9e2180f3ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
