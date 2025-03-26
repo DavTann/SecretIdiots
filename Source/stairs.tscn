@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdj5h5j4lgs4l"]
+
+[ext_resource type="PackedScene" uid="uid://b4473wxolilay" path="res://Assets/Stairs.gltf" id="1_o45ou"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o45ou"]
+points = PackedVector3Array(0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 1, 0.5, -0.5, 1, 0.5)
+
+[node name="Stairs" type="StaticBody3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_o45ou")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_o45ou")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojcjb53gwnv2"]
+
+[ext_resource type="PackedScene" uid="uid://cjmwvcc2yec48" path="res://Assets/torch.gltf" id="1_h10n7"]
+[ext_resource type="Script" uid="uid://duk17wvdsfx3v" path="res://Source/torch.gd" id="1_lh4gy"]
+
+[node name="Torch" type="Node3D"]
+script = ExtResource("1_lh4gy")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_h10n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389979, 0.396538)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03673, 0.396538)
+light_color = Color(1, 0.87, 0.87, 1)
+shadow_enabled = true
+shadow_caster_mask = 4294967293
+omni_range = 2.5

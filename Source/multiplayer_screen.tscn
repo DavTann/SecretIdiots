@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=3 uid="uid://drt6aj0r3w76k"]
+
+[ext_resource type="Script" uid="uid://cm832riga05xh" path="res://Source/multiplayer_screen.gd" id="1_jwer0"]
+
+[node name="MultiplayerScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwer0")
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 60.0
+offset_right = 75.0
+offset_bottom = 91.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 60.0
+offset_right = 235.0
+offset_bottom = 91.0
+text = "Join"
+
+[node name="HostContent" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameButton" type="Button" parent="HostContent"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 218.0
+offset_right = 250.0
+offset_bottom = 249.0
+text = "Start"
+
+[node name="IPLabel" type="Label" parent="HostContent"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 154.0
+offset_right = 93.0
+offset_bottom = 177.0
+text = "IP:"
+
+[node name="PortLabel" type="Label" parent="HostContent"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 198.0
+offset_right = 196.0
+offset_bottom = 221.0
+text = "PORT: ####"
+
+[node name="ClientContent" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IPLabel" type="Label" parent="ClientContent"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 154.0
+offset_right = 93.0
+offset_bottom = 177.0
+text = "IP:"
+
+[node name="IPEntryField" type="TextEdit" parent="ClientContent"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 149.0
+offset_right = 217.0
+offset_bottom = 190.0
+text = "127.0.0.1"
+
+[node name="PortLabel" type="Label" parent="ClientContent"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 202.0
+offset_right = 77.0
+offset_bottom = 225.0
+text = "Port:"
+
+[node name="PortEntryField" type="TextEdit" parent="ClientContent"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 192.0
+offset_right = 216.0
+offset_bottom = 233.0
+text = "8910"
+
+[node name="MPJoinButton" type="Button" parent="ClientContent"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 243.0
+offset_right = 276.0
+offset_bottom = 274.0
+text = "Join"
+
+[node name="NameBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 101.0
+offset_right = -66.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameField" type="TextEdit" parent="NameBox"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 5.0
+offset_right = 163.0
+offset_bottom = 45.0
+
+[node name="NameLabel" type="Label" parent="NameBox"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 13.0
+offset_right = 30.0
+offset_bottom = 36.0
+text = "Name:"
+
+[node name="WaitMessage" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLEASE WAIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="HostContent/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="ClientContent/MPJoinButton" to="." method="_on_mp_join_button_pressed"]

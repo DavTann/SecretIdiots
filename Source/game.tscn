@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://243q32o2fihl"]
+
+[ext_resource type="PackedScene" uid="uid://drt6aj0r3w76k" path="res://Source/multiplayer_screen.tscn" id="1_nc81t"]
+[ext_resource type="Script" uid="uid://buhuis57d1jba" path="res://Source/game.gd" id="1_vciee"]
+[ext_resource type="PackedScene" uid="uid://v0rulkovxf1q" path="res://Source/messages.tscn" id="3_heou8"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_vciee")
+
+[node name="MultiplayerScreen" parent="." instance=ExtResource("1_nc81t")]
+
+[node name="Messages" parent="." instance=ExtResource("3_heou8")]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2

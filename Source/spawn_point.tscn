@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4luqwl7amqgw"]
+
+[ext_resource type="Script" uid="uid://b3w24dl1fd4f0" path="res://Source/spawn_point.gd" id="1_gum68"]
+[ext_resource type="PackedScene" uid="uid://dro48civvofff" path="res://Assets/GLB format/character-male-c.glb" id="2_gum68"]
+
+[node name="SpawnPoint" type="Node3D" groups=["SpawnPoints"]]
+script = ExtResource("1_gum68")
+
+[node name="character-male-c2" parent="." instance=ExtResource("2_gum68")]

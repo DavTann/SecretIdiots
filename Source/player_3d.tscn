@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bifblyrsbygoy"]
+
+[ext_resource type="Script" uid="uid://di06m40jgi1ty" path="res://Source/player_3d.gd" id="1_ajyfi"]
+[ext_resource type="PackedScene" uid="uid://dro48civvofff" path="res://Assets/GLB format/character-male-c.glb" id="2_ajyfi"]
+[ext_resource type="AudioStream" uid="uid://dkwovufsns2as" path="res://Assets/Horror Scream Male 001.wav" id="3_44qmx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ajyfi"]
+height = 0.729492
+radius = 0.18
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_opsx7"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:walking")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:grounded")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_44qmx"]
+radius = 0.211867
+height = 0.869938
+
+[node name="Player3D" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_ajyfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36438, 0)
+shape = SubResource("CylinderShape3D_ajyfi")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_opsx7")
+
+[node name="Face" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Face"]
+
+[node name="SelfLight" type="SpotLight3D" parent="Face"]
+spot_range = 9.5022
+spot_angle = 38.5601
+
+[node name="CollectionArea" type="Area3D" parent="Face"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.644, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Face/CollectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400188, -0.338141)
+shape = SubResource("CapsuleShape3D_44qmx")
+
+[node name="Model" parent="." instance=ExtResource("2_ajyfi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="HurtArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36438, 0)
+shape = SubResource("CylinderShape3D_ajyfi")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="DieSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_44qmx")
+
+[connection signal="area_entered" from="Face/CollectionArea" to="." method="_on_collection_area_area_entered"]
+[connection signal="area_entered" from="HurtArea" to="." method="_on_hurt_area_area_entered"]

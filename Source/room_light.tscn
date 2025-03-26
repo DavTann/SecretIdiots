@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpvhcsy730yhf"]
+
+[ext_resource type="Texture2D" uid="uid://bhqnwg0ctg2kh" path="res://Assets/light.png" id="1_84d7j"]
+[ext_resource type="Script" uid="uid://dnmnriynxlpuw" path="res://Source/room_light.gd" id="2_l7uca"]
+
+[node name="RoomLight" type="PointLight2D"]
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("1_84d7j")
+script = ExtResource("2_l7uca")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://3k5jy4s1pjq3"]
+
+[ext_resource type="PackedScene" uid="uid://dey73l1jjiesi" path="res://Assets/Roof.gltf" id="1_yofph"]
+[ext_resource type="PackedScene" uid="uid://bi1wg1n48efmu" path="res://Assets/Floor.gltf" id="2_y32wm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yofph"]
+size = Vector3(1, 0.05, 1)
+
+[node name="Roof" type="StaticBody3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_yofph")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("BoxShape3D_yofph")
+
+[node name="blockbench_export2" parent="." instance=ExtResource("2_y32wm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00997421, 0)

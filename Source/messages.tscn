@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://v0rulkovxf1q"]
+
+[ext_resource type="Script" uid="uid://ck3gkna8rk3mx" path="res://Source/messages.gd" id="1_oanj4"]
+
+[node name="Messages" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+alignment = 2
+script = ExtResource("1_oanj4")

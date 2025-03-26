@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddu7mbh1cwiwe"]
+
+[ext_resource type="PackedScene" uid="uid://dveyb67kjfpwg" path="res://Assets/trophy.glb" id="1_a087s"]
+[ext_resource type="Script" uid="uid://cmnrjuoh1w70m" path="res://Source/treasure.gd" id="1_flgup"]
+[ext_resource type="AudioStream" uid="uid://d3m60l3h8jyh5" path="res://Assets/Equip Charm B.wav" id="3_k4v6a"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a087s"]
+radius = 0.355331
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_flgup"]
+radius = 0.149777
+height = 0.572436
+
+[node name="Treasure" type="RigidBody3D"]
+collision_layer = 0
+script = ExtResource("1_flgup")
+
+[node name="trophy2" parent="." instance=ExtResource("1_a087s")]
+
+[node name="CollectionArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.237748, 0)
+shape = SubResource("SphereShape3D_a087s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262877, 0)
+shape = SubResource("CapsuleShape3D_flgup")
+
+[node name="CollectSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_k4v6a")

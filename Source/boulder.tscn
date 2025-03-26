@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://qeip2j82iero"]
+
+[ext_resource type="PackedScene" uid="uid://0on62ifx3hp1" path="res://Assets/Boulder.gltf" id="1_jdsqx"]
+[ext_resource type="Script" uid="uid://1euulhu8vy30" path="res://Source/boulder.gd" id="1_ydwrh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ydwrh"]
+radius = 0.48
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ydwrh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:roll_direction")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e6jw6"]
+
+[node name="Boulder" type="CharacterBody3D"]
+script = ExtResource("1_ydwrh")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_jdsqx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ydwrh")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ydwrh")
+
+[node name="LethalArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LethalArea"]
+shape = SubResource("SphereShape3D_e6jw6")
